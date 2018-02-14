@@ -1,7 +1,10 @@
 package com.example.android.activitylifecyclebasic;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 
@@ -24,6 +27,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toast.makeText(MainActivity.this, "OnCreate Call", Toast.LENGTH_LONG).show();
+
+       Button hitbttn = (Button)findViewById(R.id.click_me_btn);
+
+       hitbttn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(MainActivity.this, SecondaryActivity.class);
+               startActivity(intent);
+
+           }
+       });
+
     }
 
     @Override
