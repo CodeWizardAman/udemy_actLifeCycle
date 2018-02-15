@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                Intent intent = new Intent(MainActivity.this, SecondaryActivity.class);
+
+               intent.putExtra("Message1", "Hello from Activity");
+               intent.putExtra("Message2", 1);
+
                startActivity(intent);
 
            }
