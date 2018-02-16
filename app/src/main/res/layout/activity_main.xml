@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
 
     <Button
@@ -11,5 +12,11 @@
         android:layout_height="wrap_content"
         android:text="CLICK ME"
         android:layout_gravity="center_vertical"
+        />
+    <TextView
+        android:id="@+id/first_act_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="Result"
         />
 </LinearLayout>

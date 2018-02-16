@@ -1,8 +1,11 @@
 package com.example.android.activitylifecyclebasic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +29,21 @@ public class SecondaryActivity extends AppCompatActivity{
         TextView textView =  (TextView)findViewById(R.id.sec_act_text_view);
 
         textView.setText(msg1+" "+String.valueOf(msg2));
+
+
+        Button seonndBtn = (Button)findViewById(R.id.sec_act_btn);
+
+        seonndBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = getIntent();
+                intent.putExtra("returnData", "Result from second activty");
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
+
+
 
     }
 

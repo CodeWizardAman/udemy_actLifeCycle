@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -20,6 +21,8 @@ import android.widget.Toast;
  */
 
 public class MainActivity extends AppCompatActivity {
+
+    private final int REQUEST_CODE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +41,27 @@ public class MainActivity extends AppCompatActivity {
                intent.putExtra("Message1", "Hello from Activity");
                intent.putExtra("Message2", 1);
 
-               startActivity(intent);
+               startActivityForResult(intent, REQUEST_CODE);
 
            }
        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQUEST_CODE){
+            if(resultCode == RESULT_OK){
+               String returnData = data.getStringExtra("returnData");
+                TextView textView = (TextView)findViewById(R.id.first_act_text_view);
+
+                textView.setText(returnData);
+            }
+        }
+
+
 
     }
 
